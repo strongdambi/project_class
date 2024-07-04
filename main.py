@@ -1,3 +1,5 @@
+from tabulate import tabulate
+
 # ----- 코드 정의 ------ branch
 class Member:
     def __init__(self, name, username, password):
@@ -22,9 +24,9 @@ members = []
 posts = []
 
 # # ----- 인스턴스 ------
-# m1 = Member("이름1", "아이디1", "비밀번호1")
-# m2 = Member("이름2", "아이디2", "비밀번호2")
-# m3 = Member("이름3", "아이디3", "비밀번호3")
+m1 = Member("이름1", "아이디1", "비밀번호1")
+m2 = Member("이름2", "아이디2", "비밀번호2")
+m3 = Member("이름3", "아이디3", "비밀번호3")
 # p1 = Post("제목1", "내용1", "아이디1")
 # p2 = Post("제목2", "내용2", "아이디2")
 # p3 = Post("제목3", "내용3", "아이디3")
@@ -35,9 +37,9 @@ posts = []
 # p8 = Post("제목8", "내용8", "아이디8")
 # p9 = Post("제목9", "내용9", "아이디9")
 #
-# members.append(m1)
-# members.append(m2)
-# members.append(m3)
+members.append(m1)
+members.append(m2)
+members.append(m3)
 # posts.append(p1)
 # posts.append(p2)
 # posts.append(p3)
@@ -63,6 +65,9 @@ name = input("이름을 입력하세요: ")
 username = input("ID를 입력하세요: ")
 password = input("비밀번호를 입력하세요: ")
 members.append(Member(name, username, password))
+
+member_lists = [[member.name, member.username] for member in members]
+print(tabulate(member_lists, headers=["Name", "ID"], tablefmt='fancy_grid'))
 
 title = input("제목을 입력하세요: ")
 content = input("내용을 입력하세요: ")
