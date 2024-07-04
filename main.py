@@ -1,4 +1,4 @@
-# ----- 코드 정의 ------
+# ----- 코드 정의 ------ branch
 class Member:
     def __init__(self, name, username, password):
         self.name = name
