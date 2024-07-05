@@ -1,4 +1,5 @@
-# ----- 코드 정의 ------ branch
+from tabulate import tabulate
+
 class Member:
     def __init__(self, name, username, password):
         self.name = name
@@ -7,14 +8,16 @@ class Member:
 
     def display(self):
         print(f"이름: {self.name}, ID: {self.username}")
-        pass
-
 
 class Post:
     def __init__(self, title, content, author):
         self.title = title
         self.content = content
         self.author = author
+
+    def read(cls):
+        print(f"글 정보")
+        print(tabulate(posts, headers='firstrow', tablefmt='simple_grid'))
 
 
 # ----- 코드 실행 ------
@@ -25,28 +28,33 @@ posts = []
 # m1 = Member("이름1", "아이디1", "비밀번호1")
 # m2 = Member("이름2", "아이디2", "비밀번호2")
 # m3 = Member("이름3", "아이디3", "비밀번호3")
-# p1 = Post("제목1", "내용1", "아이디1")
-# p2 = Post("제목2", "내용2", "아이디2")
-# p3 = Post("제목3", "내용3", "아이디3")
-# p4 = Post("제목4", "내용4", "아이디4")
-# p5 = Post("제목5", "내용5", "아이디5")
-# p6 = Post("제목6", "내용6", "아이디6")
-# p7 = Post("제목7", "내용7", "아이디7")
-# p8 = Post("제목8", "내용8", "아이디8")
-# p9 = Post("제목9", "내용9", "아이디9")
+
+p1 = Post("bg_game", "game", "아이디1")
+p2 = Post("tekken_game", "game", "아이디2")
+p3 = Post("python", "study", "아이디3")
+p4 = Post("out", "movie", "아이디1")
+p5 = Post("21", "movie", "아이디2")
+p6 = Post("flask", "study", "아이디3")
+p7 = Post("basketball", "sports", "아이디1")
+p8 = Post("baseball", "sports", "아이디2")
+p9 = Post("ping-pong", "sports", "아이디3")
 #
 # members.append(m1)
 # members.append(m2)
 # members.append(m3)
-# posts.append(p1)
-# posts.append(p2)
-# posts.append(p3)
-# posts.append(p4)
-# posts.append(p5)
-# posts.append(p6)
-# posts.append(p7)
-# posts.append(p8)
-# posts.append(p9)
+posts.append(p1)
+posts.append(p2)
+posts.append(p3)
+posts.append(p4)
+posts.append(p5)
+posts.append(p6)
+posts.append(p7)
+posts.append(p8)
+posts.append(p9)
+
+Post.read()
+
+
 #
 # for post in posts:
 #     if post.author == '아이디1':
